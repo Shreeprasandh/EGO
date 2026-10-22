@@ -1,0 +1,32 @@
+{
+  "name": "ego",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "pack-asar": "rm -rf /tmp/ego-staging && mkdir -p /tmp/ego-staging/electron && cp package.json /tmp/ego-staging/ && cp electron/main.cjs /tmp/ego-staging/electron/ && cp -R dist /tmp/ego-staging/ && ./node_modules/.bin/asar pack /tmp/ego-staging dist-app/EGO-darwin-arm64/EGO.app/Contents/Resources/app.asar",
+    "package-app": "npm run build && npm run pack-asar",
+    "app": "npm run build && electron electron/main.cjs",
+    "start": "npm run app"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.8",
+    "canvas-confetti": "^1.9.2",
+    "lucide-react": "^0.344.0",
+    "simplex-noise": "^4.0.1",
+    "three": "^0.162.0",
+    "zustand": "^4.5.2"
+  },
+  "devDependencies": {
+    "@electron/packager": "^20.3.0",
+    "@types/canvas-confetti": "^1.9.0",
+    "@types/three": "^0.162.0",
+    "electron": "^45.0.0",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6"
+  }
+}

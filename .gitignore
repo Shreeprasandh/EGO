@@ -1,0 +1,13 @@
+# EGO Git Ignore
+node_modules/
+dist/
+dist-app/
+EGO.app
+assets_raw/
+.DS_Store
+*.local
+.env
+.env.local
+*.log
+research/
+EGO_MASTER_STUDY_NOTEBOOK.md
